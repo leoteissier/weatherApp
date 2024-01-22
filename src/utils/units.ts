@@ -15,28 +15,23 @@ export const convertUnixTimeToHour = (unixTime: number) => {
     return `${hours}H`;
 };
 
+const lang = process.env.EXPO_PUBLIC_LANG || "en"
+// Converts UnixTime to day of the week, adapted for language
 export const convertUnixTimeToDay = (unixTime: number) => {
     const date = new Date(unixTime * 1000);
     const day = date.getDay();
-    switch (day) {
-        case 0:
-            return 'Dimanche';
-        case 1:
-            return 'Lundi';
-        case 2:
-            return 'Mardi';
-        case 3:
-            return 'Mercredi';
-        case 4:
-            return 'Jeudi';
-        case 5:
-            return 'Vendredi';
-        case 6:
-            return 'Samedi';
-        default:
-            return '';
+    const daysEn = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const daysFr = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+
+    if (lang === "en") {
+        return daysEn[day];
+    } else if (lang === "fr") {
+        return daysFr[day];
+    } else {
+        return '';
     }
 }
+
 
 export const roundObjectValues = (obj: any) => {
     Object.keys(obj).forEach(key => {
