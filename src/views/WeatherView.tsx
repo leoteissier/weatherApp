@@ -54,8 +54,6 @@ const WeatherView = ({ route }) => {
             hourlyWeatherData.list.forEach(item => roundObjectValues(item.main));
             dailyWeatherData.list.forEach(item => roundObjectValues(item.temp));
 
-            console.log(dailyWeatherData)
-
             setWeatherData({
                 current: currentWeatherData,
                 hourly: hourlyWeatherData,
