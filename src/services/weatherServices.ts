@@ -1,5 +1,5 @@
-const API_KEY = "864e7e95548ecf961c794d018ba2babe"
-const lang = "fr"
+const API_KEY = process.env.EXPO_PUBLIC_API_KEY || ""
+const lang = process.env.EXPO_PUBLIC_LANG || "en"
 
 const fetchWeatherData = async (url: string) => {
     const response = await fetch(url);
