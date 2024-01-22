@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
 import { fetchCurrentWeatherData } from '../services/weatherServices';
 import { getCities, saveCity, deleteCity } from '../utils/storage';
+import { roundObjectValues } from "../utils/units";
 import { globalStyles } from "../assets/styles/globalStyles";
-import {roundObjectValues} from "../utils/units";
 
 type CityWeatherData = {
     city: string;
@@ -40,7 +40,6 @@ const CitiesView = () => {
                     roundObjectValues(weatherData.main); // round values
                     return { city, weatherData } // return an object with city name and weather data
                 }));
-                console.log(citiesWithWeather)
                 setCities(citiesWithWeather);
             }
         } catch (error) {
@@ -60,6 +59,7 @@ const CitiesView = () => {
         if (!cityExists) {
             try {
                 const weatherData = await fetchCurrentWeatherData(input);
+                roundObjectValues(weatherData.main); // round values
                 await saveCity({ city: input });
                 setCities([...cities, { city: input, weatherData }]);
             } catch (error) {
