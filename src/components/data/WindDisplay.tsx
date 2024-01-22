@@ -10,7 +10,6 @@ type WindProps = {
 };
 
 const WindDisplay = ({ wind }: WindProps) => {
-    console.log('Wind: ', wind);
     if (!wind || !wind.deg || !wind.speed) {
         return <View style={globalStyles.loadingContainer}><Text>Loading...</Text></View>;
     }

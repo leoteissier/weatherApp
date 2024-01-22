@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react';
+import React from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import GlobalStyles from "../../assets/styles/globalStyles";
 import { convertUnixTimeToHour } from "../../utils/units";
@@ -26,7 +26,7 @@ const HourlyDisplay = ({ hourlyData }: HourlyDisplayProps) => {
             style={styles.scrollContainer}
         >
             <View style={styles.container}>
-                {hourlyData.list.map((hour: object, index: number) => (
+                {hourlyData.list.map((hour: any, index: number) => (
                     <View key={index} style={styles.component}>
                         <Text style={styles.element}>{convertUnixTimeToHour(hour.dt)}</Text>
                         <Text style={styles.element}>{hour.main.temp}°</Text>
@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#323232',
+        backgroundColor: 'rgba(50,50,50,0.5)',
         width: '100%',
         height: '100%',
         padding: 10,
     },
     component: {
-       margin: 8,
+       marginRight: 8,
     },
     element: {
         fontSize: 18,

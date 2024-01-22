@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { convertUnixTimeToDay } from "../../utils/units";
-import GlobalStyles from "../../assets/styles/globalStyles";
+import globalStyles from "../../assets/styles/globalStyles";
 
 // Define the type for your props
 type DailyDisplayProps = {
@@ -15,16 +15,16 @@ type DailyDisplayProps = {
 const DailyDisplay = ({ dailyData }: DailyDisplayProps) => {
 
     if (!dailyData || dailyData.length === 0) {
-        return <View style={GlobalStyles.loadingContainer}>
-            <Text style={GlobalStyles.text}>Loading...</Text>
+        return <View style={globalStyles.loadingContainer}>
+            <Text style={globalStyles.text}>Loading...</Text>
         </View>;
     }
 
     return (
         <View style={styles.container}>
-            {dailyData.list.map((day, index) => (
+            {dailyData.list.map((day: object, index: number) => (
                 <View key={index} style={styles.item}>
-                    <Text style={GlobalStyles.text}>{convertUnixTimeToDay(day.dt)}: {day.temp.max}° / {day.temp.min}°</Text>
+                    <Text style={globalStyles.text}>{convertUnixTimeToDay(day.dt)}: {day.temp.max}° / {day.temp.min}°</Text>
                 </View>
             ))}
         </View>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-        backgroundColor: '#323232',
+        backgroundColor: 'rgba(50,50,50,0.5)',
         width: '100%',
         marginBottom: 10,
         padding: 10,
