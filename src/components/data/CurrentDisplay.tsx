@@ -16,7 +16,7 @@ type CurrentDisplayProps = {
     current: CurrentWeatherData;
 };
 
-const CurrentDisplay: React.FC<CurrentDisplayProps> = ({ current, unit }) => {
+const CurrentDisplay: React.FC<CurrentDisplayProps> = ({ current }) => {
     const { main: { temp, temp_max, temp_min }, weather } = current;
     const description = weather[0].description;
 
