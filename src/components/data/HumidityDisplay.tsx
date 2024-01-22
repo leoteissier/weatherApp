@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet} from 'react-native';
+import globalStyles from "../../assets/styles/globalStyles";
 
 type humidityProps = {
     humidity: number;
@@ -12,8 +13,8 @@ const humidityDisplay = ({ humidity }: humidityProps) => {
 
     return (
         <View style={styles.container}>
-            <Text>Humidity</Text>
-            <Text>{humidity} %</Text>
+            <Text style={globalStyles.text}>Humidity</Text>
+            <Text style={globalStyles.text}>{humidity} %</Text>
         </View>
     );
 }
@@ -28,8 +29,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        width: '100%',
-        paddingTop: 30,
+        backgroundColor: 'rgba(50,50,50,0.5)',
+        marginRight: 5,
+        padding: 20,
+        borderRadius: 10,
     }
 });
 
