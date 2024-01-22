@@ -38,7 +38,7 @@ export const convertUnixTimeToDay = (unixTime: number) => {
     }
 }
 
-export const roundObjectValues = (obj) => {
+export const roundObjectValues = (obj: any) => {
     Object.keys(obj).forEach(key => {
         if (typeof obj[key] === 'number') {
             obj[key] = Number(obj[key].toFixed(0));
