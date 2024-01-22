@@ -7,12 +7,12 @@ type pressureProps = {
 };
 
 const pressureDisplay = ({ pressure }: pressureProps) => {
-    if (!Array.isArray(pressure)) {
+    if (!pressure) {
         return <View style={styles.loadingContainer}><Text>Loading...</Text></View>;
     }
 
     return (
-        <View style={styles.loadingContainer}>
+        <View style={styles.container}>
             <Text>Pressure: {pressure}</Text>
         </View>
     );
@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        width: '100%',
+        paddingTop: 30,
+    }
 });
 
 export default pressureDisplay;
