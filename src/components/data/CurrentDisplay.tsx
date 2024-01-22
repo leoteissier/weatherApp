@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 50,
+        marginBottom: 20,
         padding: 10,
     },
     temperature: {
