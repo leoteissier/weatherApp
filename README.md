@@ -46,4 +46,4 @@ Suivez ces instructions pour configurer l'application localement :
 
 ## Licence
 
-Ce projet est sous licence MIT. Pour plus d'informations, veuillez consulter le fichier [LICENCE](
+Ce projet est sous licence MIT. Pour plus d'informations, veuillez consulter le fichier [LICENCE].
