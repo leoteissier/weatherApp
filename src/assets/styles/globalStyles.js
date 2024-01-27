@@ -20,6 +20,7 @@ export const globalStyles = StyleSheet.create({
         height: '100%',
     },
     navbar: {
+        zIndex: 1,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
@@ -40,22 +41,17 @@ export const globalStyles = StyleSheet.create({
     },
     componentSimple: {
         width: '100%',
-        backgroundColor: '#323232',
+        backgroundColor: 'rgba(50,50,50,0.5)',
         marginBottom: 10,
         padding: 20,
         fontSize: 18,
         borderRadius: 12,
     },
     componentDouble: {
-        width: '100%',
-        backgroundColor: '#323232',
-        marginBottom: 10,
-        padding: 20,
-        fontSize: 18,
-        borderRadius: 12,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        width: '100%',
     },
 })
 
