@@ -25,8 +25,4 @@ const WindDisplay = ({ wind }: WindProps) => {
     );
 }
 
-const styles = StyleSheet.create({
-
-});
-
 export default WindDisplay;
