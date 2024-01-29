@@ -91,7 +91,7 @@ const CitiesView = () => {
         }))
     };
 
-    const renderRightActions = (city) => {
+    const renderRightActions = (city: string) => {
         return (
             <TouchableOpacity
                 onPress={() => handleDeleteCity(city)}
@@ -146,12 +146,14 @@ const CitiesView = () => {
                     const weatherDescription = cityData.weatherData.weather[0].description;
                     const localTime = getLocalTime(cityData.weatherData.timezone);
                     return (
-                        <View key={index} style={styles.item}>
+                        <View style={styles.itemContainer}>
                             <Swipeable
                                 key={index}
+
                                 renderRightActions={() => renderRightActions(cityData.city)}
+                                overshootRight={false}
                             >
-                                <TouchableOpacity onPress={() => navigation.navigate('Weather', {
+                                <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Weather', {
                                     city: cityData.city,
                                     currentData: cityData.weatherData
                                 })}>
@@ -200,10 +202,12 @@ const styles = StyleSheet.create({
         fontSize: 18,
         borderRadius: 12,
     },
+    itemContainer: {
+        marginBottom: 10,
+    },
     item: {
         width: '100%',
         backgroundColor: '#323232',
-        marginBottom: 10,
         padding: 20,
         fontSize: 18,
         borderRadius: 12,
@@ -232,6 +236,11 @@ const styles = StyleSheet.create({
     deleteButton: {
         backgroundColor: 'red',
         justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        width: 100,
+        height: '100%',
+        borderRadius: 12,
     },
     deleteButtonText: {
         color: 'white',
